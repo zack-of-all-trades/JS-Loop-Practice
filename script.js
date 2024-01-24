@@ -110,3 +110,37 @@ inputBtn.onclick = function(){
     
   }while(userInput <= 100 && userInput);
 }
+
+
+// Output prime numbers //
+const usersInput = document.getElementById('usersInput');
+const showPrimesBtn = document.getElementById('showPrimesBtn');
+const clearBtn4 = document.getElementById('clearBtn4');
+const primeResults = document.getElementById('primeResults');
+
+let isPrime = '';
+
+showPrimesBtn.onclick = function(){
+
+  for(let i = 2; i <= usersInput.value; i++){
+
+    isPrime = 'yes';
+    
+    for(let j = 2; j < i; j++){
+
+      if(i % j === 0){ 
+        isPrime = 'no';
+        break;     
+      }
+    }
+    if(isPrime === 'yes'){      
+    primeResults.textContent += i + ', ';
+    }
+  }
+  primeResults.textContent = primeResults.textContent.slice(0, -2);
+}
+
+clearBtn4.onclick = function(){
+  primeResults.textContent = ''
+  usersInput.value = '';
+}
